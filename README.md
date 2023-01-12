@@ -16,7 +16,7 @@
 По адресу http://127.0.0.1:8000/redoc/ подключена документация API для проекта YaMDb.
 ```
 
-# Как запустить проект:
+## Как запустить проект:
 Клонировать репозиторий и перейти в него в командной строке:
 ```
 git clone https://github.com/dvkonstantinov/api_yamdb.git
@@ -43,6 +43,81 @@ python3 manage.py migrate
 Запустить проект:
 ```
 python3 manage.py runserver
+```
+
+## Примеры запросов:
+1. Регистрация нового пользователя \
+\
+Адрес запроса:
+```
+POST .../api/v1/auth/signup/
+```
+Основа запроса:
+```
+{
+  "email": "string",
+  "username": "string"
+}
+```
+Пример ответа:
+```
+{
+  "email": "string",
+  "username": "string"
+}
+```
+2. Получение списка всех категорий \
+\
+Адрес запроса:
+GET .../api/v1/categories/
+Пример ответа:
+```
+[
+{
+"count": 0,
+"next": "string",
+"previous": "string",
+"results": []
+}
+]
+```
+3. Добавление произведения \
+\
+Адрес запроса:
+```
+POST .../api/v1/titles/
+```
+Основа запроса:
+```
+{
+  "name": "string",
+  "year": 0,
+  "description": "string",
+  "genre": [
+    "string"
+  ],
+  "category": "string"
+}
+```
+Пример ответа:
+```
+{
+  "id": 0,
+  "name": "string",
+  "year": 0,
+  "rating": 0,
+  "description": "string",
+  "genre": [
+    {
+      "name": "string",
+      "slug": "string"
+    }
+  ],
+  "category": {
+    "name": "string",
+    "slug": "string"
+  }
+}
 ```
 
 Технологии которые использовались:
